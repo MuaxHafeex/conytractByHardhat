@@ -28,16 +28,10 @@ Welcome to Hardhat v2.10.1
 √ Hardhat project root: ·  Project-Directory
 √ Do you want to add a .gitignore? (Y/n) · y
 
-You need to install these dependencies to run the sample project:
-npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
-  npm install --save-dev "hardhat@^2.10.1" "@nomicfoundation/hardhat-toolbox@^1.0.1"
-
 Project created
+```
+``` shell
+Create a Smart Contract and place it in contracts folder and rename it with token.sol
 
-See the README.md file for some example tasks you can run
-
-Give Hardhat a star on Github if you're enjoying it!
-
-     https://github.com/NomicFoundation/hardhat
 ```
 
