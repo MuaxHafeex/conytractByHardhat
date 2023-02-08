@@ -98,7 +98,55 @@ Create a Smart Contract and place it in contracts folder and rename it with toke
 
 ``` shell
 NOTE:
-     It requires mnemonic to be passed in for Provider, this is the seed phrase for the account you'd like to deploy from. Create a new `secrets.json` file in root directory and enter your 12 word mnemonic seed phrase to get started. To get the seedwords from metamask wallet you can go to Metamask Settings, then from the menu choose Security and Privacy where you will see a button that says reveal seed words.
+                It requires mnemonic to be passed in for Provider, this is the seed phrase for the account you'd like to deploy from. Create a new `secrets.json` file in root directory and enter your 12 word mnemonic seed phrase to get started. To get the seedwords from metamask wallet you can go to Metamask Settings, then from the menu choose Security and Privacy where you will see a button that says reveal seed words.
 ```
+
+``` shell
+    Sample secrets.json
+
+    {
+        "mnemonic": "Your_12_Word_MetaMask_Seed_Phrase"
+    }
+```
+``` shell
+    npx hardhat compile
+```
+
+``` shell
+    Copy and paste the following content into the scripts/deploy.js file.
+```
+
+``` shell
+    async function main() {
+    const [deployer] = await ethers.getSigners();
+
+    console.log("Deploying contracts with the account:", deployer.address);
+
+    console.log("Account balance:", (await deployer.getBalance()).toString());
+
+    const Token = await ethers.getContractFactory("BEP20Token"); //Replace with name of your smart contract
+    const token = await Token.deploy();
+
+    console.log("Token address:", token.address);
+    }
+
+    main()
+    .then(() => process.exit(0))
+    .catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });
+
+```
+``` shell
+    Run this command in root of the project directory:
+```
+``` shell
+    npx hardhat run --network testnet scripts/deploy.js
+```
+``` shell
+    Congratulations! You have successfully deployed BEP20 Smart Contract. Now you can interact with the Smart Contract.
+```
+
 
 
